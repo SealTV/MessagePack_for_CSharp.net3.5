@@ -1,0 +1,119 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{557946F6-AFE8-499B-802C-0F9C3CC0B27E}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MessagePack</RootNamespace>
+    <AssemblyName>MessagePack</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Esent.Interop, Version=1.9.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>.\Esent.Interop.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Remoting" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Runtime.Serialization.Formatters.Soap" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Attributes.cs" />
+    <Compile Include="FloatBits.cs" />
+    <Compile Include="Formatters\CollectionFormatter.cs" />
+    <Compile Include="Formatters\DictionaryFormatter.cs" />
+    <Compile Include="Formatters\EnumAsStringFormatter.cs" />
+    <Compile Include="Formatters\IMessagePackFormatter.cs" />
+    <Compile Include="Formatters\MultiDimentionalArrayFormatter.cs" />
+    <Compile Include="Formatters\NullableFormatter.cs" />
+    <Compile Include="Formatters\OldSpecFormatter.cs" />
+    <Compile Include="Formatters\PrimitiveFormatter.cs" />
+    <Compile Include="Formatters\PrimitiveObjectFormatter.cs" />
+    <Compile Include="Formatters\StandardClassLibraryFormatter.cs" />
+    <Compile Include="Formatters\TupleFormatter.cs" />
+    <Compile Include="Formatters\TupleFormatter1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TupleFormatter.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Formatters\ValueTupleFormatter.cs" />
+    <Compile Include="IFormatterResolver.cs" />
+    <Compile Include="IMessagePackSerializationCallbackReceiver.cs" />
+    <Compile Include="Internal\DynamicAssembly.cs" />
+    <Compile Include="Internal\ILGeneratorExtensions.cs" />
+    <Compile Include="Internal\ReflectionExtensions.cs" />
+    <Compile Include="LZ4\Codec\LZ4Codec.cs" />
+    <Compile Include="LZ4\Codec\LZ4Codec.Helper.cs" />
+    <Compile Include="LZ4\Codec\LZ4Codec.Safe.cs" />
+    <Compile Include="LZ4\Codec\LZ4Codec.Safe32.Dirty.cs" />
+    <Compile Include="LZ4\Codec\LZ4Codec.Safe64.Dirty.cs" />
+    <Compile Include="LZ4\Codec\LZ4Codec.Unsafe.cs" />
+    <Compile Include="LZ4\Codec\LZ4Codec.Unsafe32.Dirty.cs" />
+    <Compile Include="LZ4\Codec\LZ4Codec.Unsafe64.Dirty.cs" />
+    <Compile Include="LZ4\LZ4MessagePackSerializer.cs" />
+    <Compile Include="LZ4\LZ4MessagePackSerializer.JSON.cs" />
+    <Compile Include="LZ4\LZ4MessagePackSerializer.NonGeneric.cs" />
+    <Compile Include="MessagePackBinary.cs" />
+    <Compile Include="MessagePackCode.cs" />
+    <Compile Include="MessagePackSerializer.cs" />
+    <Compile Include="MessagePackSerializer.Json.cs" />
+    <Compile Include="MessagePackSerializer.NonGeneric.cs" />
+    <Compile Include="Nil.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Resolvers\AttributeFormatterResolver.cs" />
+    <Compile Include="Resolvers\BuiltinResolver.cs" />
+    <Compile Include="Resolvers\CompositeResolver.cs" />
+    <Compile Include="Resolvers\DynamicEnumAsStringResolver.cs" />
+    <Compile Include="Resolvers\DynamicEnumResolver.cs" />
+    <Compile Include="Resolvers\DynamicGenericResolver.cs" />
+    <Compile Include="Resolvers\DynamicObjectResolver.cs" />
+    <Compile Include="Resolvers\DynamicUnionResolver.cs" />
+    <Compile Include="Resolvers\NativeDateTimeResolver.cs" />
+    <Compile Include="Resolvers\OldSpecResolver.cs" />
+    <Compile Include="Resolvers\PrimitiveObjectResolver.cs" />
+    <Compile Include="Resolvers\StandardResolver.cs" />
+    <Compile Include="Shims\Reflection.cs" />
+    <Compile Include="StringEncoding.cs" />
+    <Compile Include="UnsafeExtensions\UnityBlitResolver.cs" />
+    <Compile Include="UnsafeExtensions\UnsafeBlitFormatter.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Esent.Interop.dll" />
+    <Content Include="Formatters\TupleFormatter.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>TupleFormatter1.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
